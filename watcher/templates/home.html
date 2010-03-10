@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block bodyid %}home{% endblock %}
+
+{% block title %}craigslist watcher - home{% endblock %}
+
+{% block javascript %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#entry p").hide(); 
+            $("#entry h3").click(function() {
+                $(this).next("#entry p").slideToggle('fast');
+                //$(this).next("#entry #original-link").slideToggle('fast');
+                return false;
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block extrahead %}
+    <meta http-equiv="refresh" content="600" /> <!-- 10 minutes/600 seconds -->
+{% endblock %}
+
+{% block content %}
+
+<div id="entries">
+{% for entry in entries %}
+    <div id="entry">
+        <h3>{{entry.date|date:"M d"}} - <a href="#">{{entry.title|safe}}</a></h3>
+        <p>
+            {{entry.content|safe}}
+            <br />
+            <span id="original-link"><a href="{{entry.link}}">view original craigslist post &rarr;</a></span>
+        </p>
+    </div>
+{% endfor %}
+</div>
+
+<div id="actions">
+    <h3>Actions:</h3>
+    <ul>
+        <li><a href="/add">Add a craigslist url to watch &rarr;</a></li>
+        <li><a href="/delete">Delete a watched craigslist url &rarr;</a></li>
+    </ul>
+</div>
+
+
+{% endblock %}

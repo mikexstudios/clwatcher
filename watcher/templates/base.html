@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>{% block title %}craigslist watcher{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="/static/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 8]>
+        <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    {% block extracss %}{% endblock %}
+
+    {% block javascript %}{% endblock %}
+    
+    {% block extrahead %}{% endblock %}
+</head>
+
+<body id="{% block bodyid %}{% endblock %}">
+
+
+{% block errors %}
+{% if form.errors %}
+<div id="errors">
+    Please correct the error{{form.errors|pluralize }} below.
+</div>
+{% endif %}
+{% endblock %}
+
+<div id="container">
+    
+<div id="header">
+{% block header %}
+    <h1><a href="/">craigslist watcher</a></h1>
+    <p>never miss a deal on craigslist again!</p>
+{% endblock %}
+</div>
+
+<div id="content">
+{% block content %}
+{% endblock %}
+</div>
+
+<div id="footer">
+{% block footer %}
+  a product of <a href="http://www.supplelabs.com">supple labs</a>.
+{% endblock %}
+</div>
+
+</div> <!-- container -->
+
+
+</body>
+</html>

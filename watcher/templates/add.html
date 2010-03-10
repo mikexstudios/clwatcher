@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block bodyid %}home{% endblock %}
+
+{% block title %}craigslist watcher - add url to watch{% endblock %}
+
+{% block content %}
+
+<h2>Add a craigslist url to watch:</h2>
+<p><strong>How to use:</strong></p>
+<ol>
+    <li>Do a search on craigslist for the item or keywords that you intend to watch.</li>
+    <li>Make any additional adjustments to your through craigslist if needed (for example, filter by price range).</li>
+    <li>Copy and paste the url in your address bar to the box below.</li>
+</ol>
+<form action="" method="post">
+    {{ form.url.errors }}
+    {{ form.url }}
+    <input type="submit" value="Add this url! &rarr;" />
+</form>   
+
+{% endblock %}

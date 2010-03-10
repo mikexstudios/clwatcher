@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+	WSGIDaemonProcess clwatcher user=clwatcher group=clwatcher python-path=/home/clwatcher/clwatcher_env/lib/python2.5/site-packages processes=2 threads=25
+	WSGIProcessGroup clwatcher
+	WSGIScriptAlias / /home/clwatcher/clwatcher/apache/django.wsgi
+        ServerName clwatcher.example.com
+        ServerAdmin clwatcher@example.com
+        ErrorLog /home/clwatcher/logs/clwatcher-errorlog
+        CustomLog /home/clwatcher/logs/clwatcher-customlog combined
+	
+	Alias /robots.txt /home/clwatcher/clwatcher/static/robots.txt
+	Alias /favicon.ico /home/clwatcher/clwatcher/static/favicon.ico
+	Alias /static/ /home/clwatcher/clwatcher/static/
+	<Directory /home/clwatcher/clwatcher/static>
+	Options FollowSymLinks
+	Order deny,allow
+	Allow from all
+	</Directory>
+</VirtualHost>

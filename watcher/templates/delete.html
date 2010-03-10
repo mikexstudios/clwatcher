@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block bodyid %}home{% endblock %}
+
+{% block title %}craigslist watcher - delete a watched url{% endblock %}
+
+{% block content %}
+
+<h2>Deleted a watched craigslist url:</h2>
+
+<ul>
+{% for each_url in watched_urls %}
+    <li>[<a href="/delete/{{each_url.id}}">delete</a>] <a href="{{each_url.url}}">{{each_url.url}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
